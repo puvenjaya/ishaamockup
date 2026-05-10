@@ -9,10 +9,10 @@
     <style>
         /* --- BRAND DESIGN SYSTEM --- */
         :root { 
-            --bg: #FAF9F6;      /* Premium Bone White */
-            --gold: #B89655;    /* Champagne Gold */
-            --dark: #1A1A1A;    /* Onyx Black */
-            --accent: #8A9A86;  /* Tropical Sage */
+            --bg: #FAF9F6;      
+            --gold: #B89655;    
+            --dark: #1A1A1A;    
+            --accent: #8A9A86;  
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
@@ -28,45 +28,44 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- NAVIGATION (CENTERED & MINIMAL) --- */
-       header { 
-    display: flex; 
-    flex-direction: row;    /* Changed from column to row to save vertical space */
-    justify-content: space-between; 
-    align-items: center;
-    padding: 20px 8%;      /* Reduced padding */
-    background: var(--bg);
-    position: sticky; 
-    top: 0; 
-    z-index: 1000;
-}
+        /* --- NAVIGATION FIXED & CENTERED --- */
+        header { 
+            display: flex; 
+            flex-direction: row; 
+            justify-content: space-between; 
+            align-items: center;
+            padding: 20px 8%; 
+            background: var(--bg);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05); /* Added subtle line for depth */
+        }
 
-.logo-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;       /* Reduced from 36px */
-    letter-spacing: 5px;   /* Reduced from 10px for a cleaner look */
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--dark);
-    transition: var(--transition);
-}
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;       /* Refined size */
+            letter-spacing: 6px;   /* Clean luxury spacing */
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--dark);
+            transition: var(--transition);
+        }
 
-nav ul { 
-    margin: 0;             /* Removed margin to keep it level with the logo */
-}
+        nav ul { 
             display: flex; 
             list-style: none; 
-            gap: 40px; 
+            gap: 35px; 
             padding: 0; 
-            margin: 10px 0; 
+            margin: 0; 
         }
         
         nav a { 
             text-decoration: none; 
             color: var(--dark); 
             font-weight: 300; 
-            font-size: 11px; 
-            letter-spacing: 2.5px; 
+            font-size: 10px;       /* Slightly smaller for high-end feel */
+            letter-spacing: 2px; 
             text-transform: uppercase; 
             transition: var(--transition);
         }
@@ -110,7 +109,7 @@ nav ul {
             letter-spacing: 2px;
         }
 
-        /* --- GRID & CARD ALIGNMENT (THE FIX) --- */
+        /* --- GRID & CARD ALIGNMENT --- */
         .section-heading { 
             text-align: center; 
             padding: 60px 0 20px; 
@@ -131,11 +130,31 @@ nav ul {
             max-width: 1300px; 
             margin: 0 auto; 
             padding: 40px 8%; 
-            justify-items: center; /* Centers cards in the grid */
+            justify-items: center; 
         }
 
         .product-card { 
             display: flex; 
             flex-direction: column; 
-            align-items: center; /* Centers text and buttons under the image */
-            text-align: center;
+            align-items: center; 
+            text-align: center; 
+        }
+
+        /* --- STYLES CONTINUED... (You can add your button styles back here) --- */
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#hero" class="logo-text">ISHAA</a>
+        <nav>
+            <ul>
+                <li><a href="#hero">LEGACY</a></li>
+                <li><a href="#collection">COLLECTION</a></li>
+                <li><a href="#paradise-club">PARADISE CLUB</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    </body>
+</html>
