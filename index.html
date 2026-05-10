@@ -5,73 +5,257 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISHAA | Paradise Legacy</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
     <style>
+        /* --- BRAND DESIGN SYSTEM --- */
         :root { 
-            --bg: #FAF9F6; --gold: #B89655; --dark: #1A1A1A; --accent: #8A9A86;
+            --bg: #FAF9F6;      /* Premium Bone White */
+            --gold: #B89655;    /* Champagne Gold */
+            --dark: #1A1A1A;    /* Onyx Black */
+            --accent: #8A9A86;  /* Tropical Sage */
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { background: var(--bg); color: var(--dark); font-family: 'Montserrat', sans-serif; margin: 0; -webkit-font-smoothing: antialiased; }
 
-        /* --- HEADER (LOGO LEFT, MENU RIGHT) --- */
+        body { 
+            background: var(--bg); 
+            color: var(--dark); 
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0; 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- NAVIGATION --- */
         header { 
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%; background: var(--bg);
-            position: sticky; top: 0; z-index: 1000;
+            display: flex; 
+            flex-direction: row; 
+            justify-content: space-between; 
+            align-items: center;
+            padding: 20px 8%; 
+            background: var(--bg);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
+
         .logo-text {
-            font-family: 'Playfair Display', serif; font-size: 22px; letter-spacing: 6px;
-            text-transform: uppercase; text-decoration: none; color: var(--dark);
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--dark);
+            transition: var(--transition);
         }
-        nav ul { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
-        nav a { text-decoration: none; color: var(--dark); font-weight: 300; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+
+        .logo-text:hover { opacity: 0.7; }
+
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            gap: 35px; 
+            padding: 0; 
+            margin: 0; 
+        }
+        
+        nav a { 
+            text-decoration: none; 
+            color: var(--dark); 
+            font-weight: 400; 
+            font-size: 11px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            transition: var(--transition);
+        }
+
         nav a:hover { color: var(--gold); }
 
-        /* --- HERO --- */
+        /* --- HERO SECTION --- */
         #hero { 
-            height: 70vh; display: flex; align-items: center; justify-content: center; 
-            text-align: center; position: relative; color: white; overflow: hidden;
+            height: 75vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            position: relative; 
+            color: white; 
+            overflow: hidden;
         }
-        .hero-bg img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.25); z-index: -1; }
-        .hero-tagline { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-style: italic; }
-
-        /* --- GRID (CENTERED IMAGES) --- */
-        .section-heading { text-align: center; padding: 60px 0 20px; }
-        .section-heading h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; letter-spacing: 3px; }
         
-        .grid-container { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 60px; max-width: 1200px; margin: 0 auto; padding: 40px 5%; 
+        .hero-bg img { 
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%; 
+            object-fit: cover; 
+            z-index: -1; 
         }
-        .product-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .img-wrapper { width: 100%; aspect-ratio: 4/5; overflow: hidden; margin-bottom: 20px; background: #EFECE6; }
-        .product-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s ease; }
+        
+        .hero-overlay { 
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.25); 
+            z-index: -1; 
+        }
+        
+        .hero-tagline { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(2rem, 5vw, 4rem); 
+            font-weight: 400; 
+            font-style: italic; 
+            letter-spacing: 2px;
+        }
+
+        /* --- COLLECTION GRID --- */
+        .section-heading { 
+            text-align: center; 
+            padding: 80px 0 30px; 
+        }
+        
+        .section-heading h2 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 2.2rem; 
+            font-weight: 400; 
+            letter-spacing: 3px; 
+            text-transform: capitalize;
+            margin: 0;
+        }
+
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 80px; 
+            max-width: 1300px; 
+            margin: 0 auto; 
+            padding: 20px 8% 80px; 
+            justify-items: center; 
+        }
+
+        .product-card { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            text-align: center; 
+            width: 100%;
+        }
+
+        .img-wrapper { 
+            width: 100%; 
+            aspect-ratio: 4 / 5; 
+            overflow: hidden; 
+            margin-bottom: 25px; 
+            background: #EFECE6; 
+        }
+        
+        .product-card img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.8s ease;
+        }
+        
         .product-card:hover img { transform: scale(1.05); }
-        .product-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin: 10px 0; font-weight: 400; }
-        .price { font-weight: 300; letter-spacing: 1px; color: #777; font-size: 0.9rem; }
+
+        .product-card h3 { 
+            font-family: 'Playfair Display', serif; 
+            font-weight: 400; 
+            font-size: 1.3rem; 
+            margin: 15px 0 8px; 
+            letter-spacing: 1px;
+        }
+        
+        .price { 
+            font-weight: 300; 
+            letter-spacing: 1.5px; 
+            color: #777; 
+            font-size: 0.9rem;
+            margin: 0;
+        }
 
         .btn-add { 
-            background: none; border: 1px solid var(--gold); color: var(--gold); 
-            padding: 10px 30px; cursor: pointer; font-size: 10px; letter-spacing: 2px; 
-            text-transform: uppercase; margin-top: 15px; transition: 0.3s;
+            background: none; 
+            border: 1px solid var(--gold); 
+            color: var(--gold); 
+            padding: 12px 35px; 
+            cursor: pointer; 
+            font-size: 10px; 
+            letter-spacing: 3px; 
+            text-transform: uppercase; 
+            margin-top: 25px; 
+            transition: var(--transition);
         }
-        .btn-add:hover { background: var(--gold); color: white; }
+        
+        .btn-add:hover { 
+            background: var(--gold); 
+            color: white; 
+        }
 
-        /* --- CLUB --- */
-        .membership { background: #EFECE6; padding: 80px 5%; text-align: center; }
+        /* --- PARADISE CLUB --- */
+        .membership { 
+            background: #EFECE6; 
+            padding: 100px 5%; 
+            text-align: center; 
+        }
+        
         .digital-card { 
-            width: 100%; max-width: 380px; height: 210px; background: #1A1A1A; 
-            margin: 40px auto; border-radius: 12px; padding: 30px; color: white; 
-            text-align: left; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 400px; 
+            height: 230px; 
+            background: #1A1A1A; 
+            margin: 50px auto 0; 
+            border-radius: 15px; 
+            padding: 35px; 
+            color: white; 
+            text-align: left; 
+            position: relative; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            overflow: hidden;
         }
-        .card-tier { position: absolute; top: 30px; right: 30px; border: 1px solid rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 9px; letter-spacing: 1px; }
 
-        .toast { position: fixed; bottom: 30px; right: 30px; background: var(--accent); color: white; padding: 20px; border-radius: 2px; font-size: 11px; z-index: 2000; }
+        .digital-card::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(184,150,85,0.1) 0%, transparent 70%);
+        }
+
+        .card-tier { 
+            position: absolute; 
+            top: 35px; right: 35px; 
+            border: 1px solid rgba(255,255,255,0.3); 
+            padding: 6px 16px; 
+            border-radius: 30px; 
+            font-size: 9px; 
+            letter-spacing: 2px; 
+            color: #DDD;
+        }
+
+        .toast { 
+            position: fixed; 
+            bottom: 40px; 
+            right: 40px; 
+            background: var(--accent); 
+            color: white; 
+            padding: 20px 40px; 
+            border-radius: 4px; 
+            font-size: 11px; 
+            letter-spacing: 2px;
+            z-index: 2000; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
         .hidden { display: none; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 20px; padding: 25px 5%; }
+            .hero-tagline { font-size: 2.4rem; }
+            nav ul { gap: 20px; }
+        }
     </style>
 </head>
 <body>
@@ -82,34 +266,48 @@
             <ul>
                 <li><a href="#hero">LEGACY</a></li>
                 <li><a href="#collection">COLLECTION</a></li>
-                <li><a href="#paradise-club">CLUB</a></li>
+                <li><a href="#paradise-club">PARADISE CLUB</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="hero">
-        <div class="hero-bg"><img src="./ishaa_hero_1778066107936.png" alt="Hero"></div>
+        <div class="hero-bg">
+            <img src="./ishaa_hero_1778066107936.png" alt="Paradise Hero">
+        </div>
         <div class="hero-overlay"></div>
-        <div class="hero-content"><h2 class="hero-tagline">Where Elegance Meets Eternity</h2></div>
+        <div class="hero-content">
+            <h2 class="hero-tagline">Where Elegance Meets Eternity</h2>
+        </div>
     </section>
 
     <section id="collection">
-        <div class="section-heading"><h2>The Paradise Collection</h2></div>
+        <div class="section-heading">
+            <h2>The Paradise Collection</h2>
+        </div>
         <div class="grid-container">
             <div class="product-card">
-                <div class="img-wrapper"><img src="./ishaa_featured_1_1778066125221.png"></div>
+                <div class="img-wrapper">
+                    <img src="./ishaa_featured_1_1778066125221.png" alt="Lotus Bloom">
+                </div>
                 <h3>Lotus Bloom Necklace</h3>
                 <p class="price">$320.00</p>
                 <button class="btn-add" onclick="addSpend(320)">Simulate Purchase</button>
             </div>
+            
             <div class="product-card">
-                <div class="img-wrapper"><img src="./ishaa_featured_2_1778066143398.png"></div>
+                <div class="img-wrapper">
+                    <img src="./ishaa_featured_2_1778066143398.png" alt="Sage Rose">
+                </div>
                 <h3>Sage Rose Earrings</h3>
                 <p class="price">$180.00</p>
                 <button class="btn-add" onclick="addSpend(180)">Simulate Purchase</button>
             </div>
+            
             <div class="product-card">
-                <div class="img-wrapper"><img src="./ishaa_featured_3_1778066158370.png"></div>
+                <div class="img-wrapper">
+                    <img src="./ishaa_featured_3_1778066158370.png" alt="Crescent Horizon">
+                </div>
                 <h3>Crescent Horizon Bracelet</h3>
                 <p class="price">$250.00</p>
                 <button class="btn-add" onclick="addSpend(250)">Simulate Purchase</button>
@@ -119,30 +317,33 @@
 
     <section class="membership" id="paradise-club">
         <div class="club-info">
-            <h2 style="font-family:'Playfair Display'; font-weight:400;">The Paradise Club</h2>
-            <p style="font-size:11px; letter-spacing:1px; opacity:0.6;">SPEND: $<span id="total-spend">0</span></p>
+            <h2 style="font-family:'Playfair Display'; font-weight:400; font-size: 2rem; letter-spacing: 2px; margin-top:0;">The Paradise Club</h2>
+            <p style="font-size:11px; letter-spacing:2px; opacity:0.6; text-transform: uppercase;">Lifetime Spend: <strong>$<span id="total-spend">0</span></strong></p>
         </div>
         <div class="digital-card">
-            <div style="font-weight:600; font-size:18px; letter-spacing:4px; font-family:'Playfair Display';">ISHAA</div>
+            <div style="font-weight:600; font-size:20px; letter-spacing:5px; font-family:'Playfair Display';">ISHAA</div>
             <div class="card-tier" id="card-tier">SILVER TIER</div>
-            <div style="margin-top:60px;">
-                <div style="font-size:16px; letter-spacing:2px; font-weight:200;">ELEANOR VANCE</div>
+            <div style="margin-top:75px;">
+                <div style="font-size:8px; opacity:0.5; letter-spacing:2px; margin-bottom:5px; text-transform: uppercase;">Member ID: 89234</div>
+                <div style="font-size:18px; letter-spacing:3px; font-weight:200; text-transform: uppercase;">ELEANOR VANCE</div>
             </div>
         </div>
     </section>
 
-    <div id="toast" class="toast hidden">✨ VOUCHER UNLOCKED</div>
+    <div id="toast" class="toast hidden">✨ EXCLUSIVE VOUCHER UNLOCKED</div>
 
     <script>
         let total = 0;
         function addSpend(amount) {
             total += amount;
             document.getElementById('total-spend').innerText = total;
+            
             if (total >= 100) {
                 const tier = document.getElementById('card-tier');
                 tier.innerText = "GOLD TIER";
-                tier.style.color = "var(--gold)";
                 tier.style.borderColor = "var(--gold)";
+                tier.style.color = "var(--gold)";
+                
                 const toast = document.getElementById('toast');
                 toast.classList.remove('hidden');
                 setTimeout(() => toast.classList.add('hidden'), 4000);
