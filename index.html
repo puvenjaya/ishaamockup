@@ -3,98 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISHAA: Paradise Legacy | Where Elegance Meets Eternity</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <title>ISHAA | Paradise Legacy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- BRAND DESIGN SYSTEM --- */
+        :root { 
+            --bg: #FAF9F6;      /* Premium Bone White */
+            --gold: #B89655;    /* Champagne Gold */
+            --dark: #1A1A1A;    /* Onyx Black */
+            --accent: #8A9A86;  /* Tropical Sage */
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
 
-    <header id="navbar">
-        <div class="logo">
-            <a href="#hero">
-                <img src="./logo.png" alt="ISHAA Logo" class="brand-logo">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#collection">Collection</a></li>
-                <li><a href="#paradise-club">Paradise Club</a></li>
-            </ul>
-        </nav>
-    </header>
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-    <section id="hero">
-        <div class="hero-bg">
-            <img src="./ishaa_hero_1778066107936.png" alt="Luxury Jewelry">
-        </div>
-        <div class="hero-content">
-            <h2 class="hero-tagline">Where Elegance<br>Meets Eternity</h2>
-            <a href="#collection" class="btn-primary">Shop the Collection</a>
-        </div>
-    </section>
+        body { 
+            background: var(--bg); 
+            color: var(--dark); 
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0; 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased;
+        }
 
-    <section id="collection" class="section-padding">
-        <div class="section-heading">
-            <h2>The Paradise Collection</h2>
-        </div>
-        <div class="grid-container">
-            <div class="product-card">
-                <img src="./ishaa_featured_1_1778066125221.png" alt="Product 1">
-                <div class="product-info">
-                    <h3>Lotus Bloom Necklace</h3>
-                    <p class="price">$320.00</p>
-                    <button class="btn-add" data-price="320">Simulate Purchase</button>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="./ishaa_featured_2_1778066143398.png" alt="Product 2">
-                <div class="product-info">
-                    <h3>Sage Rose Earrings</h3>
-                    <p class="price">$180.00</p>
-                    <button class="btn-add" data-price="180">Simulate Purchase</button>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="./ishaa_featured_3_1778066158370.png" alt="Product 3">
-                <div class="product-info">
-                    <h3>Crescent Horizon Bracelet</h3>
-                    <p class="price">$250.00</p>
-                    <button class="btn-add" data-price="250">Simulate Purchase</button>
-                </div>
-            </div>
-        </div>
-    </section>
+        /* --- NAVIGATION (CENTERED & MINIMAL) --- */
+        header { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            padding: 40px 0 20px; 
+            background: var(--bg);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+        }
 
-    <section id="paradise-club" class="section-padding">
-        <div class="club-container">
-            <div class="club-copy">
-                <h2>Join the Paradise Club</h2>
-                <div id="member-stats">
-                    <p>Total Spend: $<span id="total-spend">0</span></p>
-                </div>
-            </div>
-            <div class="club-visual">
-                <div class="digital-card" id="digital-card">
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="card-logo">ISHAA</div>
-                            <div class="card-tier" id="card-tier">Silver Tier</div>
-                        </div>
-                        <div class="card-middle">
-                            <div class="card-id">ID: USR-89234</div>
-                            <div class="card-name">Eleanor Vance</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            letter-spacing: 10px; /* Luxury letter spacing */
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--dark);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
 
-    <div id="toast" class="toast hidden">Perk Unlocked!</div>
+        .logo-text:hover { opacity: 0.7; }
 
-    <script src="script.js"></script>
-</body>
-</html>
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            gap: 40px; 
+            padding: 0; 
+            margin: 10px 0; 
+        }
+        
+        nav a { 
+            text-decoration: none; 
+            color: var(--dark); 
+            font-weight: 300; 
+            font-size: 11px; 
+            letter-spacing: 2.5px; 
+            text-transform: uppercase; 
+            transition: var(--transition);
+        }
+
+        nav a:hover { color: var(--gold); }
+
+        /* --- HERO SECTION --- */
+        #hero { 
+            height: 75vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            position: relative; 
+            color: white; 
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+        
+        .hero-bg img { 
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%; 
+            object-fit: cover; 
+            z-index: -1; 
+        }
+        
+        .hero-overlay { 
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.25); 
+            z-index: -1; 
+        }
+        
+        .hero-tagline { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(2rem, 5vw, 4rem); 
+            font-weight: 400; 
+            font-style: italic; 
+            letter-spacing: 2px;
+        }
+
+        /* --- GRID & CARD ALIGNMENT (THE FIX) --- */
+        .section-heading { 
+            text-align: center; 
+            padding: 60px 0 20px; 
+        }
+        
+        .section-heading h2 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 2.2rem; 
+            font-weight: 400; 
+            letter-spacing: 3px; 
+            text-transform: capitalize;
+        }
+
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 80px; 
+            max-width: 1300px; 
+            margin: 0 auto; 
+            padding: 40px 8%; 
+            justify-items: center; /* Centers cards in the grid */
+        }
+
+        .product-card { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; /* Centers text and buttons under the image */
+            text-align: center;
