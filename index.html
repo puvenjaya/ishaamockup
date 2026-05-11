@@ -16,7 +16,7 @@
         html { scroll-behavior: smooth; }
         body { background: var(--bg); color: var(--dark); font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.6; overflow-x: hidden; }
 
-        /* --- HEADER --- */
+        /* --- HEADER (LOGO LEFT, MENU + CART RIGHT) --- */
         header { 
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 8%; background: var(--bg); position: sticky; top: 0; z-index: 1000;
@@ -24,13 +24,15 @@
         }
         .brand-logo { height: 70px; width: auto; display: block; }
 
+        .nav-container { display: flex; align-items: center; gap: 35px; }
         nav ul { display: flex; list-style: none; gap: 35px; padding: 0; margin: 0; align-items: center; }
-        nav a { text-decoration: none; color: var(--dark); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; }
+        nav a { text-decoration: none; color: var(--dark); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; transition: 0.3s; }
+        nav a:hover { color: var(--gold); }
         
-        .cart-icon { cursor: pointer; position: relative; font-size: 18px; list-style: none; }
+        .cart-icon { cursor: pointer; position: relative; font-size: 18px; list-style: none; display: flex; align-items: center; }
         .cart-count { 
-            position: absolute; top: -10px; right: -10px; background: var(--gold); 
-            color: white; font-size: 10px; padding: 2px 6px; border-radius: 50%; 
+            position: absolute; top: -8px; right: -12px; background: var(--gold); 
+            color: white; font-size: 9px; padding: 2px 5px; border-radius: 50%; font-family: 'Montserrat';
         }
 
         /* --- SLIDE-OUT CART --- */
@@ -44,33 +46,47 @@
         .cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
         .close-cart { cursor: pointer; font-size: 20px; }
         .cart-items { flex-grow: 1; overflow-y: auto; }
-        .cart-item { display: flex; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .cart-item { display: flex; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; font-size: 13px; }
         .cart-total { padding-top: 20px; border-top: 2px solid var(--dark); margin-top: 20px; }
         .btn-checkout { 
             background: var(--dark); color: white; width: 100%; padding: 15px; 
-            text-transform: uppercase; letter-spacing: 2px; border: none; margin-top: 20px; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 2px; border: none; margin-top: 20px; cursor: pointer; transition: 0.3s;
         }
+        .btn-checkout:hover { background: #333; }
 
         /* --- HERO --- */
-        #hero { height: 70vh; display: flex; align-items: center; justify-content: center; position: relative; color: white; text-align: center; }
+        #hero { height: 75vh; display: flex; align-items: center; justify-content: center; position: relative; color: white; text-align: center; }
         .hero-bg img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); z-index: -1; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.25); z-index: -1; }
         .hero-tagline { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 4rem); font-style: italic; }
 
         /* --- PRODUCTS --- */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px; max-width: 1300px; margin: 0 auto; padding: 80px 8%; }
+        .section-heading { text-align: center; padding: 80px 0 20px; }
+        .section-heading h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 400; letter-spacing: 3px; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px; max-width: 1300px; margin: 0 auto; padding: 40px 8%; }
         .product-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
         .img-wrapper { width: 100%; aspect-ratio: 4/5; overflow: hidden; margin-bottom: 20px; background: #EFECE6; }
         .product-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; }
+        .product-card:hover img { transform: scale(1.05); }
         .product-card h3 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 1.3rem; margin: 15px 0 5px; }
         .price { color: #777; font-weight: 300; letter-spacing: 1px; }
 
         .btn-add { background: none; border: 1px solid var(--gold); color: var(--gold); padding: 12px 30px; cursor: pointer; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-top: 20px; transition: 0.3s; }
         .btn-add:hover { background: var(--gold); color: white; }
 
-        @media (max-width: 768px) {
+        /* --- PARADISE CLUB --- */
+        .membership { background: #EFECE6; padding: 100px 5%; text-align: center; }
+        .digital-card { 
+            width: 100%; max-width: 400px; height: 230px; background: #1A1A1A; 
+            margin: 40px auto 0; border-radius: 15px; padding: 35px; color: white; 
+            text-align: left; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.15); overflow: hidden;
+        }
+        .card-tier { position: absolute; top: 35px; right: 35px; border: 1px solid rgba(255,255,255,0.3); padding: 6px 16px; border-radius: 30px; font-size: 9px; letter-spacing: 2px; color: #DDD; }
+
+        @media (max-width: 900px) {
             header { padding: 20px 5%; flex-direction: column; gap: 15px; }
             #cart-sidebar { width: 100%; right: -100%; }
+            .nav-container { gap: 20px; }
         }
     </style>
 </head>
@@ -78,14 +94,18 @@
 
     <header>
         <a href="#hero"><img src="./logo.png" alt="ISHAA" class="brand-logo"></a>
-        <nav>
-            <ul>
-                <li><a href="#collection">COLLECTION</a></li>
-                <li class="cart-icon" onclick="toggleCart()">
-                    👜 <span class="cart-count" id="cart-count">0</span>
-                </li>
-            </ul>
-        </nav>
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="#hero">LEGACY</a></li>
+                    <li><a href="#collection">COLLECTION</a></li>
+                    <li><a href="#paradise-club">PARADISE CLUB</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon" onclick="toggleCart()">
+                👜 <span class="cart-count" id="cart-count">0</span>
+            </div>
+        </div>
     </header>
 
     <div id="cart-sidebar">
@@ -99,7 +119,7 @@
                 <span>Total</span>
                 <span id="cart-total-price">$0.00</span>
             </div>
-            <button class="btn-checkout" onclick="alert('Secure Checkout will be active once Business Bank Account is verified.')">Secure Checkout</button>
+            <button class="btn-checkout" onclick="alert('Checkout integration will be active once Business Account is verified.')">Secure Checkout</button>
         </div>
     </div>
 
@@ -110,6 +130,7 @@
     </section>
 
     <section id="collection">
+        <div class="section-heading"><h2>The Paradise Collection</h2></div>
         <div class="grid-container">
             <div class="product-card">
                 <div class="img-wrapper"><img src="./ishaa_featured_1_1778066125221.png"></div>
@@ -132,6 +153,21 @@
         </div>
     </section>
 
+    <section class="membership" id="paradise-club">
+        <div class="club-info">
+            <h2 style="font-family:'Playfair Display'; font-weight:400; font-size: 2rem; letter-spacing: 2px;">The Paradise Club</h2>
+            <p style="font-size:11px; letter-spacing:2px; opacity:0.6; text-transform: uppercase;">Lifetime Spend: <strong>$<span id="total-spend">0</span></strong></p>
+        </div>
+        <div class="digital-card">
+            <div style="font-weight:600; font-size:20px; letter-spacing:5px; font-family:'Playfair Display';">ISHAA</div>
+            <div class="card-tier" id="card-tier">SILVER TIER</div>
+            <div style="margin-top:75px;">
+                <div style="font-size:8px; opacity:0.5; letter-spacing:2px; margin-bottom:5px; text-transform: uppercase;">Member ID: 89234</div>
+                <div style="font-size:18px; letter-spacing:3px; font-weight:200; text-transform: uppercase;">ELEANOR VANCE</div>
+            </div>
+        </div>
+    </section>
+
     <script>
         let cart = [];
         function toggleCart() { document.getElementById('cart-sidebar').classList.toggle('open'); }
@@ -150,6 +186,7 @@
             });
             document.getElementById('cart-count').innerText = cart.length;
             document.getElementById('cart-total-price').innerText = `$${total.toFixed(2)}`;
+            document.getElementById('total-spend').innerText = total.toFixed(2);
         }
     </script>
 </body>
