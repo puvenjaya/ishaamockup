@@ -16,19 +16,18 @@
         html { scroll-behavior: smooth; }
         body { background: var(--bg); color: var(--dark); font-family: 'Montserrat', sans-serif; margin: 0; line-height: 1.6; overflow-x: hidden; }
 
-        /* --- NAVIGATION --- */
+        /* --- HEADER --- */
         header { 
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 8%; background: var(--bg); position: sticky; top: 0; z-index: 1000;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo-link { display: block; transition: var(--transition); }
         .brand-logo { height: 70px; width: auto; display: block; }
 
         nav ul { display: flex; list-style: none; gap: 35px; padding: 0; margin: 0; align-items: center; }
-        nav a { text-decoration: none; color: var(--dark); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+        nav a { text-decoration: none; color: var(--dark); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; }
         
-        .cart-icon { cursor: pointer; position: relative; font-size: 18px; }
+        .cart-icon { cursor: pointer; position: relative; font-size: 18px; list-style: none; }
         .cart-count { 
             position: absolute; top: -10px; right: -10px; background: var(--gold); 
             color: white; font-size: 10px; padding: 2px 6px; border-radius: 50%; 
@@ -52,23 +51,25 @@
             text-transform: uppercase; letter-spacing: 2px; border: none; margin-top: 20px; cursor: pointer;
         }
 
-        /* --- HERO & GRID --- */
+        /* --- HERO --- */
         #hero { height: 70vh; display: flex; align-items: center; justify-content: center; position: relative; color: white; text-align: center; }
         .hero-bg img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); z-index: -1; }
         .hero-tagline { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 4rem); font-style: italic; }
 
+        /* --- PRODUCTS --- */
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px; max-width: 1300px; margin: 0 auto; padding: 80px 8%; }
         .product-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .img-wrapper { width: 100%; aspect-ratio: 4/5; overflow: hidden; margin-bottom: 20px; }
+        .img-wrapper { width: 100%; aspect-ratio: 4/5; overflow: hidden; margin-bottom: 20px; background: #EFECE6; }
         .product-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s; }
-        .product-card:hover img { transform: scale(1.05); }
+        .product-card h3 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 1.3rem; margin: 15px 0 5px; }
+        .price { color: #777; font-weight: 300; letter-spacing: 1px; }
 
-        .btn-add { background: none; border: 1px solid var(--gold); color: var(--gold); padding: 12px 30px; cursor: pointer; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-top: 20px; }
+        .btn-add { background: none; border: 1px solid var(--gold); color: var(--gold); padding: 12px 30px; cursor: pointer; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-top: 20px; transition: 0.3s; }
         .btn-add:hover { background: var(--gold); color: white; }
 
         @media (max-width: 768px) {
-            header { padding: 20px 5%; }
+            header { padding: 20px 5%; flex-direction: column; gap: 15px; }
             #cart-sidebar { width: 100%; right: -100%; }
         }
     </style>
@@ -76,7 +77,7 @@
 <body>
 
     <header>
-        <a href="#hero" class="logo-link"><img src="./logo.png" alt="ISHAA" class="brand-logo"></a>
+        <a href="#hero"><img src="./logo.png" alt="ISHAA" class="brand-logo"></a>
         <nav>
             <ul>
                 <li><a href="#collection">COLLECTION</a></li>
@@ -92,14 +93,13 @@
             <h2 style="font-family:'Playfair Display'; font-weight:400;">Your Bag</h2>
             <span class="close-cart" onclick="toggleCart()">✕</span>
         </div>
-        <div class="cart-items" id="cart-items-list">
-            </div>
+        <div class="cart-items" id="cart-items-list"></div>
         <div class="cart-total">
             <div style="display:flex; justify-content:space-between; font-weight:600;">
                 <span>Total</span>
                 <span id="cart-total-price">$0.00</span>
             </div>
-            <button class="btn-checkout" onclick="alert('Checkout integration coming soon with Business Account setup.')">Secure Checkout</button>
+            <button class="btn-checkout" onclick="alert('Secure Checkout will be active once Business Bank Account is verified.')">Secure Checkout</button>
         </div>
     </div>
 
@@ -114,19 +114,19 @@
             <div class="product-card">
                 <div class="img-wrapper"><img src="./ishaa_featured_1_1778066125221.png"></div>
                 <h3>Lotus Bloom Necklace</h3>
-                <p>$320.00</p>
+                <p class="price">$320.00</p>
                 <button class="btn-add" onclick="addToCart('Lotus Bloom Necklace', 320)">Add to Bag</button>
             </div>
             <div class="product-card">
                 <div class="img-wrapper"><img src="./ishaa_featured_2_1778066143398.png"></div>
                 <h3>Sage Rose Earrings</h3>
-                <p>$180.00</p>
+                <p class="price">$180.00</p>
                 <button class="btn-add" onclick="addToCart('Sage Rose Earrings', 180)">Add to Bag</button>
             </div>
             <div class="product-card">
                 <div class="img-wrapper"><img src="./ishaa_featured_3_1778066158370.png"></div>
                 <h3>Crescent Horizon Bracelet</h3>
-                <p>$250.00</p>
+                <p class="price">$250.00</p>
                 <button class="btn-add" onclick="addToCart('Crescent Horizon Bracelet', 250)">Add to Bag</button>
             </div>
         </div>
@@ -134,35 +134,20 @@
 
     <script>
         let cart = [];
-        let total = 0;
-
-        function toggleCart() {
-            document.getElementById('cart-sidebar').classList.toggle('open');
-        }
-
+        function toggleCart() { document.getElementById('cart-sidebar').classList.toggle('open'); }
         function addToCart(name, price) {
             cart.push({name, price});
             updateCartUI();
-            if(!document.getElementById('cart-sidebar').classList.contains('open')) {
-                toggleCart();
-            }
+            if(!document.getElementById('cart-sidebar').classList.contains('open')) { toggleCart(); }
         }
-
         function updateCartUI() {
             const list = document.getElementById('cart-items-list');
             list.innerHTML = '';
-            total = 0;
-            
-            cart.forEach((item, index) => {
+            let total = 0;
+            cart.forEach((item) => {
                 total += item.price;
-                list.innerHTML += `
-                    <div class="cart-item">
-                        <span>${item.name}</span>
-                        <span>$${item.price}</span>
-                    </div>
-                `;
+                list.innerHTML += `<div class="cart-item"><span>${item.name}</span><span>$${item.price}</span></div>`;
             });
-            
             document.getElementById('cart-count').innerText = cart.length;
             document.getElementById('cart-total-price').innerText = `$${total.toFixed(2)}`;
         }
