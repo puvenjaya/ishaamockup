@@ -42,11 +42,8 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* Stacks Image and Text Vertically */
         .logo-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: block;
             text-decoration: none;
             transition: var(--transition);
         }
@@ -55,22 +52,11 @@
             opacity: 0.7; 
         }
 
-        /* The enlarged logo image */
+        /* The main logo image */
         .brand-logo {
-            height: 80px; /* Kept at 80px based on previous preference */
+            height: 80px; /* Keep this at 80px, adjust if your new logo feels too big/small */
             width: auto;
             display: block;
-        }
-
-        /* New text styling at the bottom of the logo */
-        .logo-text-under {
-            font-family: 'Playfair Display', serif;
-            font-size: 14px;
-            color: var(--gold); /* Champagne Gold color */
-            text-transform: uppercase;
-            letter-spacing: 5px; /* Elegant tracking */
-            margin-top: 5px; /* Space between image and text */
-            font-weight: 400;
         }
 
         nav ul { 
@@ -282,7 +268,6 @@
     <header>
         <a href="#hero" class="logo-link">
             <img src="./logo.png" alt="ISHAA Logo" class="brand-logo">
-            <div class="logo-text-under">ISHAA</div>
         </a>
         <nav>
             <ul>
