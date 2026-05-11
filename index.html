@@ -42,17 +42,21 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .logo-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--dark);
+        /* New Logo Image Styling */
+        .logo-link {
+            display: block;
             transition: var(--transition);
         }
 
-        .logo-text:hover { opacity: 0.7; }
+        .logo-link:hover { 
+            opacity: 0.7; 
+        }
+
+        .brand-logo {
+            height: 45px; /* Adjust this to make the logo bigger or smaller */
+            width: auto;
+            display: block;
+        }
 
         nav ul { 
             display: flex; 
@@ -261,7 +265,9 @@
 <body>
 
     <header>
-        <a href="#hero" class="logo-text">ISHAA</a>
+        <a href="#hero" class="logo-link">
+            <img src="./logo.png" alt="ISHAA Logo" class="brand-logo">
+        </a>
         <nav>
             <ul>
                 <li><a href="#hero">LEGACY</a></li>
